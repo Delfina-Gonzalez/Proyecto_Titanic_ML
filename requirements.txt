@@ -2,5 +2,5 @@ Python
 Pandas
 NumPy
 Scikit-learn
-TensorFlow / Keras
 Matplotlib
+Seaborn
