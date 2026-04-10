@@ -1,73 +1,86 @@
+
 # 🚀 Minería de Datos con Python / Trabajo Final / Abril 2026
 
-## 📈 Student Performance
+## 🚢 Titanic - Machine Learning
 
 ## 📌 Clonar el repositorio
 
 Para descargar este proyecto, ejecutar:
 
 ```bash
-git clone https://github.com/Delfina-Gonzalez/Students_Performance_ML.git
-cd Students_Performance_ML
-
+git clone https://github.com/Delfina-Gonzalez/Proyecto_Titanic_ML.git
+cd Proyecto_Titanic_ML
 
 📊 Descripción de la problemática
 
-En este ejercicio, el objetivo es obtener modelos de regresión que describan el comportamiento de los datos en el archivo student_performance.csv (data tomada de Kaggle).
+El objetivo es obtener modelos de clasificación sobre el archivo titanic_processed.csv, el cual contiene datos previamente procesados del dataset Titanic.
 
-En este archivo se registra la calificación obtenida por estudiantes (Performance Index, escala 0-100), en relación con las siguientes variables:
+Cada registro indica si un pasajero sobrevivió (Survived = 1) o no (Survived = 0), en función de:
 
-Horas de estudio (Hours Studied)
-Calificación previa (Previous Score)
-Actividades extracurriculares (Extracurricular Activities)
-Horas de sueño (Sleep Hours)
-Número de exámenes practicados (Sample Question Papers Practiced)
+Clase (Pclass)
+Sexo (Sex)
+Edad (Age)
+Familiares a bordo (SibSp, Parch)
+Tarifa pagada (Fare)
+Puerto de embarque (one-hot encoding)
 
 
 ⚙️ Metodología
 
-El flujo de trabajo implementado incluye:
+El flujo de trabajo incluye:
 
-Carga de datos en un DataFrame de Pandas
-Transformación de variables categóricas
-Normalización de datos con StandardScaler
-División en conjunto de entrenamiento y prueba (train_test_split)
-Implementación de modelos:
-Regresión Lineal
-Red Neuronal (TensorFlow/Keras)
-Evaluación mediante métricas:
-MAE
-MSE
-R²
-Varianza explicada
-Visualización de resultados
+Carga de datos en Pandas
+División en entrenamiento y prueba
+Modelos implementados:
+Regresión Logística
+Árbol de Decisión
+Evaluación mediante:
+Accuracy
+Matriz de confusión
+Interpretación de resultados
 
 
 📊 Resultados
-| Modelo             | MAE | MSE  | Varianza Explicada | R²   | 
-|--------------------|-----|------|--------------------|------| 
-| Regresión Lineal | 1.60 | 4.03 | 0.99 | 0.99 | 
-| Red Neuronal | 1.61 | 4.33 | 0.99 | 0.99 |
+Regresión Logística → Accuracy: 82.5%
+Árbol de Decisión → Accuracy: 80%
 
 
 🧠 Conclusiones
 
-Los resultados obtenidos evidencian que ambos modelos de regresión logran un desempeño excelente en la predicción del Performance Index, alcanzando valores de R² de 0.99.
+La regresión logística mostró un mejor desempeño general, mientras que el árbol de decisión permitió interpretar las reglas de decisión.
 
-Se observa que ambos modelos presentan errores muy bajos y un ajuste casi perfecto a los datos. Sin embargo, la red neuronal no logra mejorar significativamente el rendimiento de la regresión lineal, lo que sugiere que la relación entre las variables del problema es principalmente lineal.
+Se observó que el modelo tiene dificultades en valores cercanos al umbral de decisión (0.5), pero presenta alta confianza en predicciones extremas.
 
-En términos de resolución del problema, esto implica que un modelo simple como la regresión lineal es suficiente para capturar la dinámica del rendimiento estudiantil, sin necesidad de recurrir a modelos más complejos.
+🔍 Variables más influyentes
+Variable	Coeficiente	Influencia
+Sex	-1.164	Muy alta
+Pclass	-0.885	Alta
+Age	-0.568	Media
+SibSp	-0.306	Baja
+Embarked_Q	-0.096	Muy baja
+Parch	-0.045	Muy baja
+Embarked_S	-0.042	Muy baja
+Fare	-0.060	Muy baja
+Embarked_C	0.093	Baja
 
-Esto reduce el costo computacional y mejora la interpretabilidad de los resultados.
 
-En conclusión, ambos modelos cumplen con los objetivos planteados, pero la regresión lineal se posiciona como la alternativa más adecuada.
+🧾 Conclusión general
 
+El análisis confirma patrones históricos:
+
+El sexo fue el factor más determinante
+La clase social influyó fuertemente en la supervivencia
+La edad tuvo impacto significativo
+Viajar acompañado también influyó
+
+El evento no fue aleatorio: múltiples factores estructurales determinaron la supervivencia.
 
 ▶️ Cómo ejecutar
 Instalar dependencias:
 pip install -r requirements.txt
-Ejecutar el notebook:
+Ejecutar:
 jupyter notebook
+Abrir el notebook correspondiente.
 
 
 🛠️ Tecnologías utilizadas
@@ -75,5 +88,5 @@ Python
 Pandas
 NumPy
 Scikit-learn
-TensorFlow / Keras
 Matplotlib
+Seaborn
